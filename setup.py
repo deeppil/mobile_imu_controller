@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
 			'imu_receiver = mobile_imu_controller.imu_receiver:main',
 			'teleop_node = mobile_imu_controller.teleop_node:main',
+			'dashboard_node = mobile_imu_controller.dashboard_node:main',
         ],
     },
 )
