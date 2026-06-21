@@ -15,6 +15,7 @@ The system demonstrates:
 - ROS 2 publishers and subscribers
 - Real-time robot teleoperation
 - TurtleBot3 integration in Gazebo
+- Telemetry monitoring
 
 ---
 
@@ -26,7 +27,9 @@ The system demonstrates:
 - ROS 2 topic-based architecture
 - TurtleBot3 simulation support
 - Modular node design
-- 
+
+---
+
 ## Nodes
 
 ### IMU Receiver Node
@@ -38,6 +41,12 @@ Receives IMU data from a smartphone over UDP, applies filtering, and publishes a
 ### Teleop Node
 
 Subscribes to accelerometer data and converts phone motion into robot velocity commands.
+
+---
+
+### Dashboard Node
+
+Subscribes to accelerometer data as well as velocity commands topic to display telemetry data to user. 
 
 ---
 
@@ -97,26 +106,3 @@ ros2 topic echo /cmd_vel
 ```
 
 ---
-
-## Current Progress
-
-### Completed
-
-- ROS 2 package creation
-- UDP communication
-- Smartphone IMU integration
-- Accelerometer parsing
-- Low-pass filtering
-- ROS publishers
-- ROS subscribers
-- TurtleBot3 control through `/cmd_vel`
-- Gazebo simulation testing
-
-### Planned Improvements
-
-- Calibration system
-- Safety timeout mechanism
-- Deadzone implementation
-- Smoother robot control
-- Telemetry dashboard
-- System architecture diagram
