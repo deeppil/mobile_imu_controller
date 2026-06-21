@@ -56,6 +56,15 @@ class IMUReceiver(Node):
         ay = self.low_pass_filter(ay, self.prev_y)
         az = self.low_pass_filter(az, self.prev_z)
 
+        deadzone = 0.1
+
+        if abs(ax) < deadzone:
+            ax = 0.0
+        if abs(ay) < deadzone:
+            ay = 0.0
+        if abs(az) < deadzone:
+            az = 0.0    
+
         self.prev_x = ax
         self.prev_y = ay
         self.prev_z = az
