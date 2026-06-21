@@ -42,12 +42,15 @@ class IMUReceiver(Node):
 
         try:
             packet = json.loads(latest_data.decode("utf-8"))
+            ax = packet["data"]["x"]
+            ay = packet["data"]["y"]
+            az = packet["data"]["z"]
         except json.JSONDecodeError:
-            return
-
-        ax = packet["data"]["x"]
-        ay = packet["data"]["y"]
-        az = packet["data"]["z"]
+            groups = latest_data.decode("utf-8").strip().split("|")
+            acc = [float(v) for v in groups[0].split(",")]
+            ax = acc[0]
+            ay = acc[1]
+            az = acc[2]
 
         ax = self.low_pass_filter(ax, self.prev_x)
         ay = self.low_pass_filter(ay, self.prev_y)
