@@ -93,6 +93,12 @@ Start the teleoperation node:
 ros2 run mobile_imu_controller teleop_node
 ```
 
+Start the dashboard node:
+
+```bash
+ros2 run mobile_imu_controller dashboard_node
+```
+
 Verify accelerometer data:
 
 ```bash
